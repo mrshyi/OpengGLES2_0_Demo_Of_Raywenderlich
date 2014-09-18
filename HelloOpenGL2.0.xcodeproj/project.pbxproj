@@ -14,6 +14,8 @@
 		74D5656419CA6E6A00D4C97A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D5656319CA6E6A00D4C97A /* Images.xcassets */; };
 		74D5656719CA6E6A00D4C97A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D5656519CA6E6A00D4C97A /* LaunchScreen.xib */; };
 		74D5657319CA6E6A00D4C97A /* HelloOpenGL2_0Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D5657219CA6E6A00D4C97A /* HelloOpenGL2_0Tests.m */; };
+		74D5657E19CA6ECF00D4C97A /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D5657D19CA6ECF00D4C97A /* OpenGLView.m */; };
+		74D5658019CA6F3600D4C97A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D5657F19CA6F3600D4C97A /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,9 @@
 		74D5656C19CA6E6A00D4C97A /* HelloOpenGL2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloOpenGL2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D5657119CA6E6A00D4C97A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74D5657219CA6E6A00D4C97A /* HelloOpenGL2_0Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloOpenGL2_0Tests.m; sourceTree = "<group>"; };
+		74D5657C19CA6ECF00D4C97A /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		74D5657D19CA6ECF00D4C97A /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		74D5657F19CA6F3600D4C97A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74D5658019CA6F3600D4C97A /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +69,7 @@
 		74D5654A19CA6E6A00D4C97A = {
 			isa = PBXGroup;
 			children = (
+				74D5657F19CA6F3600D4C97A /* OpenGLES.framework */,
 				74D5655519CA6E6A00D4C97A /* HelloOpenGL2.0 */,
 				74D5656F19CA6E6A00D4C97A /* HelloOpenGL2.0Tests */,
 				74D5655419CA6E6A00D4C97A /* Products */,
@@ -89,6 +96,8 @@
 				74D5656319CA6E6A00D4C97A /* Images.xcassets */,
 				74D5656519CA6E6A00D4C97A /* LaunchScreen.xib */,
 				74D5655619CA6E6A00D4C97A /* Supporting Files */,
+				74D5657C19CA6ECF00D4C97A /* OpenGLView.h */,
+				74D5657D19CA6ECF00D4C97A /* OpenGLView.m */,
 			);
 			path = HelloOpenGL2.0;
 			sourceTree = "<group>";
@@ -222,6 +231,7 @@
 				74D5655F19CA6E6A00D4C97A /* ViewController.m in Sources */,
 				74D5655C19CA6E6A00D4C97A /* AppDelegate.m in Sources */,
 				74D5655919CA6E6A00D4C97A /* main.m in Sources */,
+				74D5657E19CA6ECF00D4C97A /* OpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
