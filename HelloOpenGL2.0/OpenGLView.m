@@ -60,7 +60,7 @@
 }
 
 // 清屏
--(void)render{
+-(void)render:(CADisplayLink*)displayLink{
     // 设置颜色
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
     // 清空
@@ -108,7 +108,7 @@
         [self setupFrameBuffer];
         [self compileShaders];
         [self setupVBOs];
-        [self render];
+        [self setupDisplayLink];
     }
     return self;
 
@@ -224,7 +224,11 @@ const GLubyte Indices[] = {
     
 }
 
-
+// 获得与屏幕一致的刷新频率
+-(void)setupDisplayLink{
+    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render:)];
+    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+}
 
 
 
