@@ -76,6 +76,7 @@
         [self setupRenderBuffer];
         [self setupFrameBuffer];
         [self compileShaders];
+        [self setupVBOs];
         [self render];
     }
     return self;
@@ -172,7 +173,21 @@ const GLubyte Indices[] = {
     2, 3, 0
 };
 
-
+- (void)setupVBOs {
+    
+    GLuint vertexBuffer;
+    glGenBuffers(1, &vertexBuffer);
+    // hey when I say GL_ARRAY_BUFFER, I really mean vertexBuffer
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    //  send the data over to OpenGL-land
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
+    
+    GLuint indexBuffer;
+    glGenBuffers(1, &indexBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
+    
+}
 
 
 
