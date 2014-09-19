@@ -63,6 +63,7 @@
 		74F1B85619CBD632006276CF /* CC3Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Math.h; sourceTree = "<group>"; };
 		74F1B85719CBD632006276CF /* CC3Math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3Math.m; sourceTree = "<group>"; };
 		74F1B85819CBD632006276CF /* ccTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccTypes.h; sourceTree = "<group>"; };
+		74F1B85D19CBFF89006276CF /* asm0005.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asm0005.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +127,7 @@
 		74D5655619CA6E6A00D4C97A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				74F1B85D19CBFF89006276CF /* asm0005.h */,
 				74D5655719CA6E6A00D4C97A /* Info.plist */,
 				74D5655819CA6E6A00D4C97A /* main.m */,
 			);
