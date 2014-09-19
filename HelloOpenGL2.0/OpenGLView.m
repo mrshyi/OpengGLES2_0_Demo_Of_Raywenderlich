@@ -64,6 +64,20 @@
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
     // 清空
     glClear(GL_COLOR_BUFFER_BIT);
+    
+    // 1
+    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    
+    // 2
+    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE,
+                          sizeof(Vertex), 0);
+    glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE,
+                          sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
+    
+    // 3
+    glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
+                   GL_UNSIGNED_BYTE, 0);
+    
     // 显示
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
