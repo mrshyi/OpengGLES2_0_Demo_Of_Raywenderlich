@@ -25,6 +25,8 @@
     GLuint _modelViewUniform; // 动态
     
     float _currentRotation; // 旋转
+    
+    GLuint _depthRenderBuffer;// 深度
 }
 
 @end

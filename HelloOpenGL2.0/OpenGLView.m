@@ -48,7 +48,7 @@
     glGenBuffers(1, &_colorRenderBuffer);
     // 绑定 GL_RENDERBUFFER 到 _colorRenderBuffer
     glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
-    // 存储Render Buffer
+    // 存储Render Buffer(renderbufferStorage 专为colorrender 设计)
     [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
 }
 
@@ -59,6 +59,9 @@
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     // 让之前创建的renderbuffer 依附到 framebuffer的 GL_COLOR_ATTACHMENT0
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
+    
+    // 添加！
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
 }
 
 // 清屏
@@ -66,7 +69,10 @@
     // 设置颜色
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
     // 清空
-    glClear(GL_COLOR_BUFFER_BIT);
+    // glClear(GL_COLOR_BUFFER_BIT);
+    // 深度 添加！
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glEnable(GL_DEPTH_TEST);
     
     // 投影矩阵2
     CC3GLMatrix *projection = [CC3GLMatrix matrix];
@@ -111,6 +117,9 @@
     if (self) {
         [self setupLayer];
         [self setupContext];
+        // 深度添加
+        [self setupDepthBuffer];
+        
         [self setupRenderBuffer];
         [self setupFrameBuffer];
         [self compileShaders];
@@ -270,6 +279,11 @@ const GLubyte Indices[] = {
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
+-(void)setupDepthBuffer{
+    glGenBuffers(1, &_depthRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBuffer);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.frame.size.width, self.frame.size.height);
+}
 
 
 
