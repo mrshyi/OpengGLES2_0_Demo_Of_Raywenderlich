@@ -77,6 +77,11 @@
                                  andFar:10];
     glUniformMatrix4fv(_projectionUniform, 1, 0, projection.glMatrix);
     
+    // 动态投影矩阵
+    CC3GLMatrix *modelView = [CC3GLMatrix matrix];
+    [modelView populateFromTranslation:CC3VectorMake(sin(CACurrentMediaTime()), 0, -7)];
+    glUniformMatrix4fv(_modelViewUniform, 1, 0, modelView.glMatrix);
+    
     // 1
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
@@ -183,6 +188,7 @@
     
     // 投影矩阵1
     _projectionUniform = glGetUniformLocation(programHandle, "Projection");
+    _modelViewUniform  = glGetUniformLocation(programHandle, "ModelView");
 }
 
 typedef struct {
@@ -191,10 +197,10 @@ typedef struct {
 } Vertex;
 
 const Vertex Vertices[] = {
-    {{1, -1, -7}, {1, 0, 0, 1}},
-    {{1, 1, -7}, {0, 1, 0, 1}},
-    {{-1, 1, -7}, {0, 0, 1, 1}},
-    {{-1, -1, -7}, {0, 0, 0, 1}}
+    {{1, -1, 0}, {1, 0, 0, 1}},
+    {{1, 1, 0}, {0, 1, 0, 1}},
+    {{-1, 1, 0}, {0, 0, 1, 1}},
+    {{-1, -1, 0}, {0, 0, 0, 1}}
 };
 
 const GLubyte Indices[] = {

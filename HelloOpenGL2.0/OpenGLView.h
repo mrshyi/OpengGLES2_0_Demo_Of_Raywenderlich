@@ -20,7 +20,9 @@
     GLuint _positionSlot;
     GLuint _colorSlot;
     
-    GLuint _projectionUniform;
+    GLuint _projectionUniform; // 投影矩阵
+    
+    GLuint _modelViewUniform; // 动态
 }
 
 @end

@@ -5,7 +5,9 @@ varying vec4 DestinationColor; // 3 out the value  that will be passed to framen
 
 uniform mat4 Projection; // projection matrix
 
+uniform mat4 ModelView; // change free
+
 void main(void) { // 4
     DestinationColor = SourceColor; // 5
-    gl_Position = Projection * Position; // 6
+    gl_Position = Projection * ModelView * Position; // 6
 }
