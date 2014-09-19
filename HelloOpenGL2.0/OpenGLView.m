@@ -9,6 +9,7 @@
 #import "OpenGLView.h"
 
 @implementation OpenGLView
+
 // 重写layerclass即可。创建一个用来显示OpenGL content的 视图，需要先设置视图默认的 layer 为 CAEAGLLayer。
 +(Class)layerClass{
     return [CAEAGLLayer class];
@@ -154,7 +155,22 @@
     glEnableVertexAttribArray(_colorSlot);
 }
 
+typedef struct {
+    float Position[3];
+    float Color[4];
+} Vertex;
 
+const Vertex Vertices[] = {
+    {{1, -1, 0}, {1, 0, 0, 1}},
+    {{1, 1, 0}, {0, 1, 0, 1}},
+    {{-1, 1, 0}, {0, 0, 1, 1}},
+    {{-1, -1, 0}, {0, 0, 0, 1}}
+};
+
+const GLubyte Indices[] = {
+    0, 1, 2,
+    2, 3, 0
+};
 
 
 
