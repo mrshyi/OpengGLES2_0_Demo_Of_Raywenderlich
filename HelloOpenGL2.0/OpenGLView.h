@@ -23,6 +23,8 @@
     GLuint _projectionUniform; // 投影矩阵
     
     GLuint _modelViewUniform; // 动态
+    
+    float _currentRotation; // 旋转
 }
 
 @end
